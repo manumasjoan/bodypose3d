@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from utils import DLT
-plt.style.use('seaborn')
+plt.style.use('default')
 
 
 pose_keypoints = np.array([16, 14, 12, 11, 13, 15, 24, 23, 25, 26, 27, 28])
@@ -21,6 +21,7 @@ def read_keypoints(filename):
         kpts.append(line)
 
     kpts = np.array(kpts)
+    print(kpts)
     return kpts
 
 
@@ -48,8 +49,8 @@ def visualize_3d(p3ds):
 
         #uncomment these if you want scatter plot of keypoints and their indices.
         # for i in range(12):
-        #     #ax.text(kpts3d[i,0], kpts3d[i,1], kpts3d[i,2], str(i))
-        #     #ax.scatter(xs = kpts3d[i:i+1,0], ys = kpts3d[i:i+1,1], zs = kpts3d[i:i+1,2])
+        #     ax.text(kpts3d[i,0], kpts3d[i,1], kpts3d[i,2], str(i))
+        #     ax.scatter(xs = kpts3d[i:i+1,0], ys = kpts3d[i:i+1,1], zs = kpts3d[i:i+1,2])
 
 
         #ax.set_axis_off()
@@ -57,11 +58,11 @@ def visualize_3d(p3ds):
         ax.set_yticks([])
         ax.set_zticks([])
 
-        ax.set_xlim3d(-10, 10)
+        ax.set_xlim3d(-10, 50)
         ax.set_xlabel('x')
-        ax.set_ylim3d(-10, 10)
+        ax.set_ylim3d(-10, 50)
         ax.set_ylabel('y')
-        ax.set_zlim3d(-10, 10)
+        ax.set_zlim3d(-10, 50)
         ax.set_zlabel('z')
         plt.pause(0.1)
         ax.cla()
